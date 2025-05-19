@@ -1,4 +1,4 @@
-import { Controller, Inject } from '@nestjs/common';
+  import { Controller, Inject } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { NoteDTO } from 'src/notes/domain/dtos/note.dto';
 import { NoteService } from 'src/notes/services/note.service';
@@ -8,9 +8,8 @@ export class NoteController {
   constructor(@Inject(NoteService) private readonly noteService: NoteService) {}
 
   @MessagePattern({ cmd: 'note.create' })
-  async createNote(@Payload() payload: { note: NoteDTO; userId: number }) {
-    const { note, userId } = payload;
-    return this.noteService.saveNote({ ...note, userId });
+  async createNote(@Payload() payload: NoteDTO) {
+    return this.noteService.saveNote(payload);
   }
 
   @MessagePattern({ cmd: 'note.findByUser' })
