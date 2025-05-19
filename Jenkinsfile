@@ -4,7 +4,7 @@ pipeline {
     environment {
         APP_NAME = 'notes-ms'
         REPO_URL = 'https://github.com/monocoto3000/notes-ms.git'
-        SSH_CRED_ID = 'ssh-key-ec2'
+        SSH_CRED_ID = 'ssh-key-ec2-monocoto'
         EC2_USER = 'ubuntu'
         REMOTE_PATH = '/home/ubuntu/notes-ms'
     }
